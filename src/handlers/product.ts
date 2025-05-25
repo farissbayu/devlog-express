@@ -1,5 +1,6 @@
 import prisma from "../db";
 
+// get all products for user
 export const getProducts = async (req, res) => {
   console.log(req.user);
 
@@ -16,6 +17,7 @@ export const getProducts = async (req, res) => {
   res.json({ data: user.products });
 };
 
+// get one product by id
 export const getProductById = async (req, res) => {
   const id = req.params.id;
   const userId = req.user.id;
@@ -29,6 +31,7 @@ export const getProductById = async (req, res) => {
   res.json({ data: product });
 };
 
+// create new product for a user
 export const createProduct = async (req, res) => {
   const userId = req.user.id;
   const product = await prisma.product.create({
@@ -38,14 +41,10 @@ export const createProduct = async (req, res) => {
     },
   });
 
-  if (!product) {
-    res.status(400);
-    res.json({ message: "Product failed to create" });
-  }
-
-  res.json({ message: "Product succesfully created" });
+  res.json({ message: "Product succesfully created", data: product });
 };
 
+// update existing data of product
 export const updateProduct = async (req, res) => {
   const id = req.params.id;
   const userId = req.user.id;
@@ -64,6 +63,7 @@ export const updateProduct = async (req, res) => {
   res.json({ data: updated });
 };
 
+// delete one product record
 export const deleteProdcut = async (req, res) => {
   const id = req.params.id;
   const userId = req.user.id;

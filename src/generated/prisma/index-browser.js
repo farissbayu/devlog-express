@@ -151,7 +151,7 @@ exports.Prisma.UpdatePointScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   name: 'name',
-  desciption: 'desciption',
+  description: 'description',
   updateId: 'updateId'
 };
 

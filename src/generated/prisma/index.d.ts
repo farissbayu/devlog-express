@@ -4539,7 +4539,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     name: string | null
-    desciption: string | null
+    description: string | null
     updateId: string | null
   }
 
@@ -4548,7 +4548,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     name: string | null
-    desciption: string | null
+    description: string | null
     updateId: string | null
   }
 
@@ -4557,7 +4557,7 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     name: number
-    desciption: number
+    description: number
     updateId: number
     _all: number
   }
@@ -4568,7 +4568,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     name?: true
-    desciption?: true
+    description?: true
     updateId?: true
   }
 
@@ -4577,7 +4577,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     name?: true
-    desciption?: true
+    description?: true
     updateId?: true
   }
 
@@ -4586,7 +4586,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     name?: true
-    desciption?: true
+    description?: true
     updateId?: true
     _all?: true
   }
@@ -4668,7 +4668,7 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     name: string
-    desciption: string
+    description: string
     updateId: string
     _count: UpdatePointCountAggregateOutputType | null
     _min: UpdatePointMinAggregateOutputType | null
@@ -4694,7 +4694,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     name?: boolean
-    desciption?: boolean
+    description?: boolean
     updateId?: boolean
     update?: boolean | UpdateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["updatePoint"]>
@@ -4704,7 +4704,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     name?: boolean
-    desciption?: boolean
+    description?: boolean
     updateId?: boolean
     update?: boolean | UpdateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["updatePoint"]>
@@ -4714,7 +4714,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     name?: boolean
-    desciption?: boolean
+    description?: boolean
     updateId?: boolean
     update?: boolean | UpdateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["updatePoint"]>
@@ -4724,11 +4724,11 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     name?: boolean
-    desciption?: boolean
+    description?: boolean
     updateId?: boolean
   }
 
-  export type UpdatePointOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "name" | "desciption" | "updateId", ExtArgs["result"]["updatePoint"]>
+  export type UpdatePointOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "name" | "description" | "updateId", ExtArgs["result"]["updatePoint"]>
   export type UpdatePointInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     update?: boolean | UpdateDefaultArgs<ExtArgs>
   }
@@ -4749,7 +4749,7 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       name: string
-      desciption: string
+      description: string
       updateId: string
     }, ExtArgs["result"]["updatePoint"]>
     composites: {}
@@ -5179,7 +5179,7 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"UpdatePoint", 'DateTime'>
     readonly updatedAt: FieldRef<"UpdatePoint", 'DateTime'>
     readonly name: FieldRef<"UpdatePoint", 'String'>
-    readonly desciption: FieldRef<"UpdatePoint", 'String'>
+    readonly description: FieldRef<"UpdatePoint", 'String'>
     readonly updateId: FieldRef<"UpdatePoint", 'String'>
   }
     
@@ -5649,7 +5649,7 @@ export namespace Prisma {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     name: 'name',
-    desciption: 'desciption',
+    description: 'description',
     updateId: 'updateId'
   };
 
@@ -5934,7 +5934,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"UpdatePoint"> | Date | string
     updatedAt?: DateTimeFilter<"UpdatePoint"> | Date | string
     name?: StringFilter<"UpdatePoint"> | string
-    desciption?: StringFilter<"UpdatePoint"> | string
+    description?: StringFilter<"UpdatePoint"> | string
     updateId?: StringFilter<"UpdatePoint"> | string
     update?: XOR<UpdateScalarRelationFilter, UpdateWhereInput>
   }
@@ -5944,7 +5944,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     name?: SortOrder
-    desciption?: SortOrder
+    description?: SortOrder
     updateId?: SortOrder
     update?: UpdateOrderByWithRelationInput
   }
@@ -5957,7 +5957,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"UpdatePoint"> | Date | string
     updatedAt?: DateTimeFilter<"UpdatePoint"> | Date | string
     name?: StringFilter<"UpdatePoint"> | string
-    desciption?: StringFilter<"UpdatePoint"> | string
+    description?: StringFilter<"UpdatePoint"> | string
     updateId?: StringFilter<"UpdatePoint"> | string
     update?: XOR<UpdateScalarRelationFilter, UpdateWhereInput>
   }, "id">
@@ -5967,7 +5967,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     name?: SortOrder
-    desciption?: SortOrder
+    description?: SortOrder
     updateId?: SortOrder
     _count?: UpdatePointCountOrderByAggregateInput
     _max?: UpdatePointMaxOrderByAggregateInput
@@ -5982,7 +5982,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"UpdatePoint"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"UpdatePoint"> | Date | string
     name?: StringWithAggregatesFilter<"UpdatePoint"> | string
-    desciption?: StringWithAggregatesFilter<"UpdatePoint"> | string
+    description?: StringWithAggregatesFilter<"UpdatePoint"> | string
     updateId?: StringWithAggregatesFilter<"UpdatePoint"> | string
   }
 
@@ -6094,7 +6094,7 @@ export namespace Prisma {
   export type UpdateCreateInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -6107,7 +6107,7 @@ export namespace Prisma {
   export type UpdateUncheckedCreateInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -6146,7 +6146,7 @@ export namespace Prisma {
   export type UpdateCreateManyInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -6181,18 +6181,18 @@ export namespace Prisma {
   export type UpdatePointCreateInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     name: string
-    desciption: string
+    description: string
     update: UpdateCreateNestedOneWithoutUpdatePointsInput
   }
 
   export type UpdatePointUncheckedCreateInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     name: string
-    desciption: string
+    description: string
     updateId: string
   }
 
@@ -6201,7 +6201,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    desciption?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     update?: UpdateUpdateOneRequiredWithoutUpdatePointsNestedInput
   }
 
@@ -6210,16 +6210,16 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    desciption?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     updateId?: StringFieldUpdateOperationsInput | string
   }
 
   export type UpdatePointCreateManyInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     name: string
-    desciption: string
+    description: string
     updateId: string
   }
 
@@ -6228,7 +6228,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    desciption?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
   }
 
   export type UpdatePointUncheckedUpdateManyInput = {
@@ -6236,7 +6236,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    desciption?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     updateId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -6486,7 +6486,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     name?: SortOrder
-    desciption?: SortOrder
+    description?: SortOrder
     updateId?: SortOrder
   }
 
@@ -6495,7 +6495,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     name?: SortOrder
-    desciption?: SortOrder
+    description?: SortOrder
     updateId?: SortOrder
   }
 
@@ -6504,7 +6504,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     name?: SortOrder
-    desciption?: SortOrder
+    description?: SortOrder
     updateId?: SortOrder
   }
 
@@ -6890,7 +6890,7 @@ export namespace Prisma {
   export type UpdateCreateWithoutProductInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -6902,7 +6902,7 @@ export namespace Prisma {
   export type UpdateUncheckedCreateWithoutProductInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -6999,17 +6999,17 @@ export namespace Prisma {
   export type UpdatePointCreateWithoutUpdateInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     name: string
-    desciption: string
+    description: string
   }
 
   export type UpdatePointUncheckedCreateWithoutUpdateInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     name: string
-    desciption: string
+    description: string
   }
 
   export type UpdatePointCreateOrConnectWithoutUpdateInput = {
@@ -7071,14 +7071,14 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"UpdatePoint"> | Date | string
     updatedAt?: DateTimeFilter<"UpdatePoint"> | Date | string
     name?: StringFilter<"UpdatePoint"> | string
-    desciption?: StringFilter<"UpdatePoint"> | string
+    description?: StringFilter<"UpdatePoint"> | string
     updateId?: StringFilter<"UpdatePoint"> | string
   }
 
   export type UpdateCreateWithoutUpdatePointsInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -7090,7 +7090,7 @@ export namespace Prisma {
   export type UpdateUncheckedCreateWithoutUpdatePointsInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -7168,7 +7168,7 @@ export namespace Prisma {
   export type UpdateCreateManyProductInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     title: string
     body: string
     status?: $Enums.UPDATE_STATUS
@@ -7214,9 +7214,9 @@ export namespace Prisma {
   export type UpdatePointCreateManyUpdateInput = {
     id?: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     name: string
-    desciption: string
+    description: string
   }
 
   export type UpdatePointUpdateWithoutUpdateInput = {
@@ -7224,7 +7224,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    desciption?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
   }
 
   export type UpdatePointUncheckedUpdateWithoutUpdateInput = {
@@ -7232,7 +7232,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    desciption?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
   }
 
   export type UpdatePointUncheckedUpdateManyWithoutUpdateInput = {
@@ -7240,7 +7240,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    desciption?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
   }
 
 
