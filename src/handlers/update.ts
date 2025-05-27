@@ -12,9 +12,11 @@ export const getUpdates = async (req, res) => {
     },
   });
 
-  const updates = products.reduce((productUpdates, product) => {
-    return [...productUpdates, ...product.updates];
-  }, []);
+  // const updates = products.reduce((productUpdates, product) => {
+  //   return [...productUpdates, ...product.updates];
+  // }, []);
+
+  const updates = products.flatMap((product) => product.updates);
 
   res.json({ data: updates });
 };
@@ -33,7 +35,7 @@ export const getUpdateById = async (req, res) => {
 
 // create new update for a product
 export const createUpdate = async (req, res) => {
-  const { productId, title, body } = req.body;
+  const { productId, title, body, version } = req.body;
   const product = await prisma.product.findUnique({
     where: {
       id: productId,
@@ -41,7 +43,7 @@ export const createUpdate = async (req, res) => {
   });
 
   if (!product) {
-    return res.json({ message: "nope" });
+    return res.json({ message: "You can't create update for this product" });
   }
 
   const update = await prisma.update.create({
@@ -49,6 +51,7 @@ export const createUpdate = async (req, res) => {
       title,
       body,
       productId,
+      version,
     },
   });
 
@@ -56,38 +59,63 @@ export const createUpdate = async (req, res) => {
 };
 
 // update existing data of update
+// export const updateUpdate = async (req, res) => {
+//   const userId = req.user.id;
+//   const id = req.params.id;
+
+//   // get all product from current user
+//   const userProducts = await prisma.product.findMany({
+//     where: {
+//       userId,
+//     },
+//     include: {
+//       updates: true,
+//     },
+//   });
+
+//   // reduce the updates from all user products
+//   const allUpdates = userProducts.flatMap((product) => product.updates);
+
+//   // check if update that want to be update is in allUpdates
+//   const isMatch = allUpdates.find((update) => update.id === id);
+
+//   // if not found give message to user
+//   if (!isMatch) {
+//     return res.json({ message: "nope" });
+//   }
+
+//   // if found, update the update
+//   const updated = await prisma.update.update({
+//     where: {
+//       id,
+//     },
+//     data: req.body,
+//   });
+
+//   res.json({ data: updated });
+// };
+
 export const updateUpdate = async (req, res) => {
   const userId = req.user.id;
   const id = req.params.id;
 
-  // get all product from current user
-  const userProducts = await prisma.product.findMany({
+  const existingUpdate = await prisma.update.findFirst({
     where: {
-      userId,
-    },
-    include: {
-      updates: true,
+      id,
+      product: {
+        userId,
+      },
     },
   });
 
-  // reduce the updates from all user products
-  const allUpdates = userProducts.reduce((productUpdates, product) => {
-    return [...productUpdates, ...product.updates];
-  }, []);
-
-  // check if update that want to be update is in allUpdates
-  const isMatch = allUpdates.find((update) => update.id === id);
-
-  // if not found give message to user
-  if (!isMatch) {
-    return res.json({ message: "nope" });
+  if (!existingUpdate) {
+    return res
+      .status(403)
+      .json({ message: "Not authorized to update this item" });
   }
 
-  // if found, update the update
   const updated = await prisma.update.update({
-    where: {
-      id,
-    },
+    where: { id },
     data: req.body,
   });
 
@@ -96,7 +124,24 @@ export const updateUpdate = async (req, res) => {
 
 // delete one update record
 export const deleteUpdate = async (req, res) => {
+  const userId = req.user.id;
   const id = req.params.id;
+
+  const existingUpdate = await prisma.update.findFirst({
+    where: {
+      id,
+      product: {
+        userId,
+      },
+    },
+  });
+
+  if (!existingUpdate) {
+    return res
+      .status(403)
+      .json({ message: "Not authorized to update this item" });
+  }
+
   const deleted = await prisma.update.delete({
     where: { id },
   });

@@ -26,22 +26,28 @@ export const getProductById = async (req, res) => {
       id,
       userId,
     },
+    include: {
+      updates: true,
+    },
   });
 
   res.json({ data: product });
 };
 
 // create new product for a user
-export const createProduct = async (req, res) => {
-  const userId = req.user.id;
-  const product = await prisma.product.create({
-    data: {
-      name: req.body.name,
-      userId,
-    },
-  });
-
-  res.json({ message: "Product succesfully created", data: product });
+export const createProduct = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const product = await prisma.product.create({
+      data: {
+        name: req.body.name,
+        userId,
+      },
+    });
+    res.json({ message: "Product succesfully created", data: product });
+  } catch (e) {
+    next(e);
+  }
 };
 
 // update existing data of product
@@ -64,7 +70,7 @@ export const updateProduct = async (req, res) => {
 };
 
 // delete one product record
-export const deleteProdcut = async (req, res) => {
+export const deleteProduct = async (req, res) => {
   const id = req.params.id;
   const userId = req.user.id;
   const deleted = await prisma.product.delete({
