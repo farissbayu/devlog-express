@@ -4,7 +4,6 @@ import router from "./router";
 import cors from "cors";
 import { protect } from "./modules/auth";
 import { createNewUser, signin } from "./handlers/user";
-import { error } from "console";
 
 const app = express();
 
@@ -14,9 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res, next) => {
-  setTimeout(() => {
-    next(new Error("error"));
-  }, 1000);
+  return res.json({ message: "hello" });
 });
 
 app.use("/api/v1", protect, router);
